@@ -13,122 +13,149 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\CTextureInput">
+      <UniqueIdentifier>{16d9d756-0126-454d-9c4e-14f1cfbee3b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\CTextureOutput">
+      <UniqueIdentifier>{48309dbe-bf18-48b0-a86d-aa1514e1adc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Interfaces">
+      <UniqueIdentifier>{5e8049b8-0184-4f7e-9d74-ac65782b0b5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Enums">
+      <UniqueIdentifier>{c865da39-0bc4-45b5-92b5-158311680b91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Structs">
+      <UniqueIdentifier>{1311dd78-868c-4e0f-a5a6-518734519ffd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\CTextureInput">
+      <UniqueIdentifier>{a1f98ece-fa43-48b8-878c-6ffaf44e3119}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\CTextureOutput">
+      <UniqueIdentifier>{146dcf40-4706-4275-b480-cd037710fb84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Enums">
+      <UniqueIdentifier>{a1df6aae-91d0-4aa2-8fc2-3e7cae943027}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Structs">
+      <UniqueIdentifier>{8a3a143a-1a86-44e1-9342-a13c75d12f0c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MaterialConv.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="EMaterialType.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CTextureDefinitionFile.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CTextureInputBase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TexUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CTextureInputDiffuse.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\CTextureInput</Filter>
     </ClCompile>
     <ClCompile Include="CTextureInputHeight.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\CTextureInput</Filter>
     </ClCompile>
     <ClCompile Include="CTextureInputNormal.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\CTextureInput</Filter>
     </ClCompile>
     <ClCompile Include="CTextureInputPreview.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\CTextureInput</Filter>
     </ClCompile>
     <ClCompile Include="CTextureInputRMA.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\CTextureInput</Filter>
     </ClCompile>
     <ClCompile Include="CTextureOutputBase.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\CTextureOutput</Filter>
     </ClCompile>
     <ClCompile Include="CTextureOutputDiffuse.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\CTextureOutput</Filter>
     </ClCompile>
     <ClCompile Include="CTextureOutputHeight.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\CTextureOutput</Filter>
     </ClCompile>
     <ClCompile Include="CTextureOutputNormal.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CTextureOutputRMA.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SSwizzle.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\CTextureOutput</Filter>
     </ClCompile>
     <ClCompile Include="CTextureOutputPreview.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\CTextureOutput</Filter>
+    </ClCompile>
+    <ClCompile Include="CTextureOutputRMA.cpp">
+      <Filter>Source Files\CTextureOutput</Filter>
+    </ClCompile>
+    <ClCompile Include="CTextureInputBase.cpp">
+      <Filter>Source Files\CTextureInput</Filter>
+    </ClCompile>
+    <ClCompile Include="EMaterialType.cpp">
+      <Filter>Source Files\Enums</Filter>
+    </ClCompile>
+    <ClCompile Include="SSwizzle.cpp">
+      <Filter>Source Files\Structs</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="inicpp.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EMaterialType.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="CTextureDefinitionFile.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ITextureInput.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SSwizzle.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CTextureInputBase.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TexUtils.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CTextureInputDiffuse.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="CTextureInputBase.hpp">
+      <Filter>Header Files\CTextureInput</Filter>
     </ClInclude>
-    <ClInclude Include="CTextureInputNormal.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="CTextureInputDiffuse.hpp">
+      <Filter>Header Files\CTextureInput</Filter>
     </ClInclude>
     <ClInclude Include="CTextureInputHeight.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\CTextureInput</Filter>
+    </ClInclude>
+    <ClInclude Include="CTextureInputNormal.hpp">
+      <Filter>Header Files\CTextureInput</Filter>
     </ClInclude>
     <ClInclude Include="CTextureInputPreview.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\CTextureInput</Filter>
     </ClInclude>
     <ClInclude Include="CTextureInputRMA.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ITextureOutput.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\CTextureInput</Filter>
     </ClInclude>
     <ClInclude Include="CTextureOutputBase.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\CTextureOutput</Filter>
     </ClInclude>
     <ClInclude Include="CTextureOutputDiffuse.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CTextureOutputNormal.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\CTextureOutput</Filter>
     </ClInclude>
     <ClInclude Include="CTextureOutputHeight.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\CTextureOutput</Filter>
     </ClInclude>
-    <ClInclude Include="CTextureOutputRMA.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="CTextureOutputNormal.hpp">
+      <Filter>Header Files\CTextureOutput</Filter>
     </ClInclude>
     <ClInclude Include="CTextureOutputPreview.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\CTextureOutput</Filter>
+    </ClInclude>
+    <ClInclude Include="CTextureOutputRMA.hpp">
+      <Filter>Header Files\CTextureOutput</Filter>
+    </ClInclude>
+    <ClInclude Include="ITextureOutput.hpp">
+      <Filter>Header Files\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="ITextureInput.hpp">
+      <Filter>Header Files\Interfaces</Filter>
     </ClInclude>
     <ClInclude Include="IMaterialMetadata.hpp">
+      <Filter>Header Files\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="EMaterialType.hpp">
+      <Filter>Header Files\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="SSwizzle.hpp">
+      <Filter>Header Files\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="inicpp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

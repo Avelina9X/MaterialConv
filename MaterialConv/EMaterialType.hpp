@@ -8,3 +8,4 @@ enum class EMaterialType
 };
 
 const EMaterialType ParseMaterialType( std::string type );
+const std::string GetMaterialName( EMaterialType type );

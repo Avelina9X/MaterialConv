@@ -9,3 +9,10 @@ const EMaterialType ParseMaterialType( std::string type )
     std::cerr << "Unknown material type: " << type << std::endl;
     throw std::exception( "Unknown mateiral type" );
 }
+
+const std::string GetMaterialName( EMaterialType type )
+{
+    if ( type == EMaterialType::PBR_POM ) return "PBR:POM";
+
+    throw std::exception( "Unknown mateiral type" );
+}

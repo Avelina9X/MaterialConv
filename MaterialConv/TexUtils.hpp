@@ -116,6 +116,20 @@ T LookupByName( const char *pName, const SValue<T> *pArray )
     return static_cast<T>( 0 );
 }
 
+template<typename T>
+const char *LookupByValue( T value, const SValue<T> *pArray )
+{
+    while ( pArray->name )
+    {
+        if ( value == pArray->value )
+            return pArray->name;
+
+        pArray++;
+    }
+
+    return "";
+}
+
 size_t InputChannels( DXGI_FORMAT inputFormat );
 DXGI_FORMAT CreateOutputFormat( DXGI_FORMAT inputFormat, size_t outChannels );
 bool CreateDevice( int adapter, ID3D11Device **pDevice );
