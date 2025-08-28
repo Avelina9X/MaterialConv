@@ -13,6 +13,25 @@ CTextureOutputBase::CTextureOutputBase( CTextureDefinitionFile &definitionFile, 
 {
 }
 
+void CTextureOutputBase::SaveFile()
+{
+	std::cout << PrettySection() << ": Saving file...";
+	HRESULT hr = SaveToDDSFile(
+		GetImages(),
+		GetImageCount(),
+		GetMetadata(),
+		DDS_FLAGS_NONE,
+		GetOutputPath().wstring().c_str()
+	);
+
+	if ( FAILED( hr ) ) {
+		std::cerr << "Failed to save file to " << GetOutputPath() << "with error" << hr << std::endl;
+		throw std::exception( "File save error" );
+	}
+
+	std::cout << "done!" << std::endl;
+}
+
 void CTextureOutputBase::PostProcess( const DirectX::Image *srcImages, size_t nimages, const DirectX::TexMetadata &metadata, ComPtr<ID3D11Device> pDevice )
 {
 	m_mipmappedTexture = std::make_unique<ScratchImage>();

@@ -11,8 +11,9 @@ public:
 
 	const std::string PrettySection() { return "[\033[1m" + m_sSection + "\033[0m]"; }
 
-	DXGI_FORMAT GetOutputFormat() { return m_fOutputFormat; }
-	std::filesystem::path GetOutputPath() { return m_filePath; }
+	DXGI_FORMAT GetOutputFormat() override { return m_fOutputFormat; }
+	std::filesystem::path GetOutputPath() override { return m_filePath; }
+	void SaveFile() override;
 
 	const DirectX::TexMetadata &GetMetadata() override { return m_compressedTexture->GetMetadata(); }
 	const DirectX::Image *GetImages() override { return m_compressedTexture->GetImages(); }
@@ -31,5 +32,5 @@ protected:
 	std::unique_ptr<DirectX::ScratchImage> m_mipmappedTexture;
 	std::unique_ptr<DirectX::ScratchImage> m_compressedTexture;
 
-	void PostProcess( const DirectX::Image *srcImages, size_t nimages, const DirectX::TexMetadata &metadata, Microsoft::WRL::ComPtr<ID3D11Device> pDevice = nullptr ) override;
+	void PostProcess( const DirectX::Image *srcImages, size_t nimages, const DirectX::TexMetadata &metadata, Microsoft::WRL::ComPtr<ID3D11Device> pDevice = nullptr );
 };

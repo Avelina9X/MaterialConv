@@ -135,6 +135,7 @@
     <ClCompile Include="CTextureOutputDiffuse.cpp" />
     <ClCompile Include="CTextureOutputHeight.cpp" />
     <ClCompile Include="CTextureOutputNormal.cpp" />
+    <ClCompile Include="CTextureOutputPreview.cpp" />
     <ClCompile Include="CTextureOutputRMA.cpp" />
     <ClCompile Include="EMaterialType.cpp" />
     <ClCompile Include="CTextureInputBase.cpp" />
@@ -157,8 +158,10 @@
     <ClInclude Include="CTextureOutputDiffuse.hpp" />
     <ClInclude Include="CTextureOutputHeight.hpp" />
     <ClInclude Include="CTextureOutputNormal.hpp" />
+    <ClInclude Include="CTextureOutputPreview.hpp" />
     <ClInclude Include="CTextureOutputRMA.hpp" />
     <ClInclude Include="EMaterialType.hpp" />
+    <ClInclude Include="IMaterialMetadata.hpp" />
     <ClInclude Include="inicpp.h" />
     <ClInclude Include="ITextureInput.hpp" />
     <ClInclude Include="ITextureOutput.hpp" />

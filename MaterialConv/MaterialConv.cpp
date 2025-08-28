@@ -12,11 +12,13 @@
 #include "CTextureInputNormal.hpp"
 #include "CTextureInputHeight.hpp"
 #include "CTextureInputRMA.hpp"
+#include "CTextureInputPreview.hpp"
 
 #include "CTextureOutputDiffuse.hpp"
 #include "CTextureOutputNormal.hpp"
 #include "CTextureOutputHeight.hpp"
 #include "CTextureOutputRMA.hpp"
+#include "CTextureOutputPreview.hpp"
 
 
 void ThrowIfFailed( HRESULT hr )
@@ -49,50 +51,45 @@ int main()
 
     CTextureInputDiffuse diffuse( definitionFile );
     CTextureOutputDiffuse diffuseOutput( definitionFile, diffuse, pDevice );
-    ThrowIfFailed( SaveToDDSFile(
-        diffuseOutput.GetImages(),
-        diffuseOutput.GetImageCount(),
-        diffuseOutput.GetMetadata(),
-        DDS_FLAGS_NONE,
-        diffuseOutput.GetOutputPath().wstring().c_str()
-    ) );
+    diffuseOutput.SaveFile();
     std::cout << std::endl;
-
 
     CTextureInputNormal normal( definitionFile );
     CTextureOutputNormal normalOutput( definitionFile, normal, pDevice );
-    ThrowIfFailed( SaveToDDSFile(
-        normalOutput.GetImages(),
-        normalOutput.GetImageCount(),
-        normalOutput.GetMetadata(),
-        DDS_FLAGS_NONE,
-        normalOutput.GetOutputPath().wstring().c_str()
-    ) );
+    normalOutput.SaveFile();
     std::cout << std::endl;
-
-
-    CTextureInputHeight height( definitionFile );
-    CTextureOutputHeight heightOutput( definitionFile, height, pDevice );
-    ThrowIfFailed( SaveToDDSFile(
-        heightOutput.GetImages(),
-        heightOutput.GetImageCount(),
-        heightOutput.GetMetadata(),
-        DDS_FLAGS_NONE,
-        heightOutput.GetOutputPath().wstring().c_str()
-    ) );
-    std::cout << std::endl;
-
 
     CTextureInputRoughness roughness( definitionFile );
     CTextureInputMetalness metalness( definitionFile );
     CTextureInputAmbient ambient( definitionFile );
     CTextureOutputRMA rmaOutput( definitionFile, roughness, metalness, ambient, pDevice );
-    ThrowIfFailed( SaveToDDSFile(
-        rmaOutput.GetImages(),
-        rmaOutput.GetImageCount(),
-        rmaOutput.GetMetadata(),
-        DDS_FLAGS_NONE,
-        rmaOutput.GetOutputPath().wstring().c_str()
-    ) );
+    rmaOutput.SaveFile();
     std::cout << std::endl;
+
+    CTextureInputHeight height( definitionFile );
+    CTextureOutputHeight heightOutput( definitionFile, height, pDevice );
+    heightOutput.SaveFile();
+    std::cout << std::endl;
+
+    CTextureInputPreview preview( definitionFile );
+    CTextureOutputPreview previewOutput( definitionFile, preview );
+    previewOutput.SaveFile();
+    std::cout << std::endl;
+
+
+    IMaterialMetadata *materialArray[] = {
+        &diffuseOutput,
+        &normalOutput,
+        &rmaOutput,
+        &heightOutput,
+        &previewOutput,
+    };
+
+    for ( IMaterialMetadata *i : materialArray ) {
+        std::cout << "[" << i->GetMaterialSection() << "]" << std::endl;
+        for ( auto const &[key, value] : i->GetMaterialKeyValues() ) {
+            std::cout << key << "=" << value << std::endl;
+        }
+        std::cout << std::endl;
+    }
 }

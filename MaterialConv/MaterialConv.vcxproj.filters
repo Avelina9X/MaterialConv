@@ -63,6 +63,9 @@
     <ClCompile Include="SSwizzle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CTextureOutputPreview.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -120,6 +123,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CTextureOutputRMA.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CTextureOutputPreview.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IMaterialMetadata.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

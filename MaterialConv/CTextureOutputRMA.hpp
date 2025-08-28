@@ -14,11 +14,10 @@ public:
 		Microsoft::WRL::ComPtr<ID3D11Device> pDevice = nullptr
 	);
 
+	std::string GetMaterialSection() override { return "RMA"; }
 	std::map<std::string, std::string> GetMaterialKeyValues() {
 		return {
 			{ "FileName", m_sFilename },
-			{ "SRGB", IsSRGB() ? "True" : "False" },
-			{ "Premultiplied", GetMetadata().IsPMAlpha() ? "True" : "False" },
 		};
 	}
 
