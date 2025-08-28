@@ -72,8 +72,8 @@ CTextureInputBase::CTextureInputBase( CTextureDefinitionFile &definitionFile, st
 }
 
 
-void CTextureInputBase::ApplyPremultipliedAlpha( bool premultiplyAlpha ) {
-
+void CTextureInputBase::ApplyPremultipliedAlpha( bool premultiplyAlpha )
+{
 	if ( HasAlpha( GetMetadata().format ) && premultiplyAlpha ) {
 		if ( GetMetadata().IsPMAlpha() ) {
 			std::cerr << "Image is already using premultiplied alpha!" << std::endl;

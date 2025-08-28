@@ -6,23 +6,7 @@
 class CTextureOutputHeight : public CTextureOutputBase
 {
 public:
-	CTextureOutputHeight( CTextureDefinitionFile &definitionFile, CTextureInputHeight &heightTexture, Microsoft::WRL::ComPtr<ID3D11Device> pDevice = nullptr ) :
-		CTextureOutputBase( definitionFile, "OutHeight", "height.dds" )
-	{
-		if ( heightTexture.IsSRGB() != IsSRGB() ) {
-			std::cerr << "Height input SRGB mismatches output format!" << std::endl;
-			throw std::exception( "DXGI_FORMAT error" );
-		}
-
-		if ( InputChannels( heightTexture.GetMetadata().format ) != InputChannels( GetOutputFormat() ) ) {
-			std::cerr << "Height input channels mismatches output format channels!" << std::endl;
-			throw std::exception( "DXGI_FORMAT error" );
-		}
-
-		PostProcess( heightTexture.GetImages(), heightTexture.GetImageCount(), heightTexture.GetMetadata(), pDevice );
-
-		m_sHeightScale = std::to_string( heightTexture.GetHeightScale() );
-	}
+	CTextureOutputHeight( CTextureDefinitionFile &definitionFile, CTextureInputHeight &heightTexture, Microsoft::WRL::ComPtr<ID3D11Device> pDevice = nullptr );
 
 	std::map<std::string, std::string> GetMaterialKeyValues() {
 		return {

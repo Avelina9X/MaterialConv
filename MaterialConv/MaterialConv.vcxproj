@@ -126,9 +126,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CTextureDefinitionFile.cpp" />
+    <ClCompile Include="CTextureInputDiffuse.cpp" />
+    <ClCompile Include="CTextureInputHeight.cpp" />
+    <ClCompile Include="CTextureInputNormal.cpp" />
+    <ClCompile Include="CTextureInputPreview.cpp" />
+    <ClCompile Include="CTextureInputRMA.cpp" />
+    <ClCompile Include="CTextureOutputBase.cpp" />
+    <ClCompile Include="CTextureOutputDiffuse.cpp" />
+    <ClCompile Include="CTextureOutputHeight.cpp" />
+    <ClCompile Include="CTextureOutputNormal.cpp" />
+    <ClCompile Include="CTextureOutputRMA.cpp" />
     <ClCompile Include="EMaterialType.cpp" />
     <ClCompile Include="CTextureInputBase.cpp" />
     <ClCompile Include="MaterialConv.cpp" />
+    <ClCompile Include="SSwizzle.cpp" />
     <ClCompile Include="TexUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -137,7 +148,7 @@
   <ItemGroup>
     <ClInclude Include="CTextureDefinitionFile.hpp" />
     <ClInclude Include="CTextureInputBase.hpp" />
-    <ClInclude Include="CTextureInputDIffuse.hpp" />
+    <ClInclude Include="CTextureInputDiffuse.hpp" />
     <ClInclude Include="CTextureInputHeight.hpp" />
     <ClInclude Include="CTextureInputNormal.hpp" />
     <ClInclude Include="CTextureInputPreview.hpp" />
