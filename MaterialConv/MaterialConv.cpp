@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #define NOMINMAX
 #include <iostream>
 #include <DirectXTex.h>
@@ -7,6 +8,7 @@
 #include <Windows.h>
 
 #include "CTextureDefinitionFile.hpp"
+#include "CMaterialDefinitionFile.hpp"
 
 #include "CTextureInputDiffuse.hpp"
 #include "CTextureInputNormal.hpp"
@@ -33,11 +35,41 @@ using namespace DirectX;
 
 namespace fs = std::filesystem;
 
-const std::string DEFINITION_PATH = "D:/Projects/Resorces/Materials/Poliigon/Poliigon_BrickWallReclaimed_8320/definition.ini";
-const std::string RESOURCES_DIR = "D:/Projects/Resorces/";
-
-int main()
+int main( int argc, char *argv[] )
 {
+    std::string resourceDir;
+    std::string definitionPath;
+
+    if ( argc != 2 && argc != 4 ) {
+        std::cerr << "Incorrect commandline input. Must be in format:" << std::endl;
+        std::cerr << "    MaterialConv.exe -r [RESOURCE DIR] [INPUT FILE]" << std::endl;
+        std::cerr << "    MaterialConv.exe [INPUT FILE]" << std::endl;
+        return -1;
+    }
+    if ( argc == 2 ) {
+        auto szResourceDir = std::getenv( "MaterialConvResDir" );
+
+        if ( !szResourceDir ) {
+            std::cerr << "MaterialConvResDir environment variable not set. Must pass resource dir:" << std::endl;
+            std::cerr << "    MaterialConv.exe -r [RESOURCE DIR] [INPUT FILE]" << std::endl;
+            return -1;
+        }
+
+        resourceDir = szResourceDir;
+        definitionPath = argv[1];
+    }
+    if ( argc == 4 ) {
+        if ( !std::strcmp( argv[1], "-r" ) ) {
+            std::cerr << "Incorrect commandline input. Must be in format:" << std::endl;
+            std::cerr << "    MaterialConv.exe -r [RESOURCE DIR] [INPUT FILE]" << std::endl;
+            std::cerr << "    MaterialConv.exe [INPUT FILE]" << std::endl;
+            return -1;
+        }
+
+        resourceDir = argv[2];
+        definitionPath = argv[3];
+    }
+
     // Init COM for DX functions to work
     ThrowIfFailed( CoInitializeEx( nullptr, COINIT_MULTITHREADED ) );
 
@@ -47,49 +79,6 @@ int main()
         std::cerr << "Failed to detect GPU! BC6H/BC7 compression is disabled!" << std::endl;
     }
 
-    CTextureDefinitionFile definitionFile( DEFINITION_PATH, RESOURCES_DIR );
-
-    CTextureInputDiffuse diffuse( definitionFile );
-    CTextureOutputDiffuse diffuseOutput( definitionFile, diffuse, pDevice );
-    diffuseOutput.SaveFile();
-    std::cout << std::endl;
-
-    CTextureInputNormal normal( definitionFile );
-    CTextureOutputNormal normalOutput( definitionFile, normal, pDevice );
-    normalOutput.SaveFile();
-    std::cout << std::endl;
-
-    CTextureInputRoughness roughness( definitionFile );
-    CTextureInputMetalness metalness( definitionFile );
-    CTextureInputAmbient ambient( definitionFile );
-    CTextureOutputRMA rmaOutput( definitionFile, roughness, metalness, ambient, pDevice );
-    rmaOutput.SaveFile();
-    std::cout << std::endl;
-
-    CTextureInputHeight height( definitionFile );
-    CTextureOutputHeight heightOutput( definitionFile, height, pDevice );
-    heightOutput.SaveFile();
-    std::cout << std::endl;
-
-    CTextureInputPreview preview( definitionFile );
-    CTextureOutputPreview previewOutput( definitionFile, preview );
-    previewOutput.SaveFile();
-    std::cout << std::endl;
-
-
-    IMaterialMetadata *materialArray[] = {
-        &diffuseOutput,
-        &normalOutput,
-        &rmaOutput,
-        &heightOutput,
-        &previewOutput,
-    };
-
-    for ( IMaterialMetadata *i : materialArray ) {
-        std::cout << "[" << i->GetMaterialSection() << "]" << std::endl;
-        for ( auto const &[key, value] : i->GetMaterialKeyValues() ) {
-            std::cout << key << "=" << value << std::endl;
-        }
-        std::cout << std::endl;
-    }
+    CTextureDefinitionFile definitionFile( definitionPath, resourceDir );
+    CMaterialDefinitionFile materialFile( definitionFile, pDevice );
 }

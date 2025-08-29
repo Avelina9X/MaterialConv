@@ -1,5 +1,7 @@
 #pragma once
 
+#define NOMINMAX
+
 #include "ITextureOutput.hpp"
 #include "CTextureDefinitionFile.hpp"
 #include <wrl\client.h>

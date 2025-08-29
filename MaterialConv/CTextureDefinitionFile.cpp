@@ -54,6 +54,9 @@ CTextureDefinitionFile::CTextureDefinitionFile( std::string definitionFilePath, 
     m_headerInDirPath = GetFieldWithPathPrefix( "Header", "InDir", "$RESDIR", m_resourceDirectoryPath );
     m_headerOutDirPath = GetFieldWithPathPrefix( "Header", "OutDir", "$DEFDIR", m_definitionFileDirectory );
 
+    // Set $NAME
+    m_namePrefix = GetField<std::string>( "Header", "Name" );
+
     // Parse material type
     m_eMaterialType = ParseMaterialType( GetField<std::string>( "Header", "Type" ) );
 };

@@ -5,7 +5,7 @@ using namespace DirectX;
 
 CTextureOutputBase::CTextureOutputBase( CTextureDefinitionFile &definitionFile, std::string section, std::string filename ) :
 	m_sSection( section ),
-	m_sFilename( definitionFile.GetField<std::string>( m_sSection, "FileName", filename ) ),
+	m_sFilename( filename ),
 	m_filePath( definitionFile.GetOutDir() / m_sFilename ),
 	m_sOutputFormat( definitionFile.GetField<std::string>( m_sSection, "Format" ) ),
 	m_fOutputFormat( LookupByName( m_sOutputFormat.c_str(), g_pFormats ) ),

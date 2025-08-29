@@ -125,6 +125,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CMaterialDefinitionFile.cpp" />
     <ClCompile Include="CTextureDefinitionFile.cpp" />
     <ClCompile Include="CTextureInputDiffuse.cpp" />
     <ClCompile Include="CTextureInputHeight.cpp" />
@@ -147,6 +148,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CMaterialDefinitionFile.hpp" />
+    <ClInclude Include="CMaterialMetadata.hpp" />
     <ClInclude Include="CTextureDefinitionFile.hpp" />
     <ClInclude Include="CTextureInputBase.hpp" />
     <ClInclude Include="CTextureInputDiffuse.hpp" />

@@ -47,6 +47,8 @@ public:
     const std::filesystem::path GetInDir() { return m_headerInDirPath; }
     const std::filesystem::path GetOutDir() { return m_headerOutDirPath; }
 
+    const std::string GetName() { return m_namePrefix; }
+
     const EMaterialType GetMaterialType() { return m_eMaterialType; }
 
 protected:
@@ -56,6 +58,8 @@ protected:
 
     std::filesystem::path m_headerInDirPath;
     std::filesystem::path m_headerOutDirPath;
+
+    std::string m_namePrefix;
 
     EMaterialType m_eMaterialType;
 
